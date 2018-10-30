@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.IO;
-using ICUconsole;
+﻿using ICUconsole;
 using Newtonsoft.Json;
+using System;
+using System.IO;
+using System.Text;
+using System.Windows.Forms;
 
 namespace LanguageAddin
 {
     public partial class LanguageToolControl : UserControl
     {
-        Statistics res = new Statistics();
+        Statistics res = null;
 
         public LanguageToolControl()
         {
@@ -36,7 +30,7 @@ namespace LanguageAddin
                 Microsoft.Office.Interop.Word.Range rng = doc.Content;
                 var contents = rng.Text;
 
-                
+
                 var outFile = @"C:\LanguageTool\statistics.json";
                 var inFile = @"C:\LanguageTool\camText.txt";
                 File.WriteAllText(inFile, contents, Encoding.Unicode);
@@ -61,7 +55,7 @@ namespace LanguageAddin
                 lblLongestSentenceWords.Text = res.LongestSentenceWords;
 
                 llViewWords.Enabled = true;
-                llAdddingZWSP.Enabled = true;
+                btnAddZwsp.Enabled = true;
             }
             catch (Exception x)
             {
@@ -70,16 +64,36 @@ namespace LanguageAddin
             }
         }
 
+
+
         private void llViewWords_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            if (res == null)
+                return;
+
             Popup pp = new Popup(res.WordList);
             pp.ShowDialog();
         }
 
         private void llAdddingZWSP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            if (res == null)
+                return;
+
             Popup pp = new Popup(res.AddingZWSP);
             pp.ShowDialog();
+        }
+
+        private void btnAddZwsp_Click(object sender, EventArgs e)
+        {
+            if (res == null)
+                return;
+
+            var app = (Microsoft.Office.Interop.Word._Application)Globals.ThisAddIn.Application;
+            var doc = app.ActiveDocument;
+            var rng = doc.Range(0, 0);
+            rng.Text = res.AddingZWSP;
+
         }
     }
 }

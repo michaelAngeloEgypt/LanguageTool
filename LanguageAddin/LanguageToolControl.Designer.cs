@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnAnalyze = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.llAdddingZWSP = new System.Windows.Forms.LinkLabel();
             this.llViewWords = new System.Windows.Forms.LinkLabel();
             this.lblVowels = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -46,20 +45,21 @@
             this.lblWords = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblSentences = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblLongestSentence = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblLongestSentenceWords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlTitle = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblLongestSentence = new System.Windows.Forms.Label();
+            this.btnAddZwsp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.pnlTitle.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.pnlTitle.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblLongestWord
@@ -105,6 +105,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnAddZwsp);
             this.panel1.Controls.Add(this.lblLongestWord);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.lblLongestWordChars);
@@ -112,10 +113,9 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.btnAnalyze);
             this.panel1.Controls.Add(this.splitContainer1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 71);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(604, 696);
+            this.panel1.Size = new System.Drawing.Size(544, 696);
             this.panel1.TabIndex = 20;
             // 
             // label3
@@ -150,7 +150,6 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.llAdddingZWSP);
             this.splitContainer1.Panel1.Controls.Add(this.llViewWords);
             this.splitContainer1.Panel1.Controls.Add(this.lblVowels);
             this.splitContainer1.Panel1.Controls.Add(this.label8);
@@ -167,21 +166,9 @@
             this.splitContainer1.Panel2.Controls.Add(this.label9);
             this.splitContainer1.Panel2.Controls.Add(this.lblLongestSentenceWords);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Size = new System.Drawing.Size(604, 497);
+            this.splitContainer1.Size = new System.Drawing.Size(546, 497);
             this.splitContainer1.SplitterDistance = 188;
             this.splitContainer1.TabIndex = 17;
-            // 
-            // llAdddingZWSP
-            // 
-            this.llAdddingZWSP.AutoSize = true;
-            this.llAdddingZWSP.Enabled = false;
-            this.llAdddingZWSP.Location = new System.Drawing.Point(274, 71);
-            this.llAdddingZWSP.Name = "llAdddingZWSP";
-            this.llAdddingZWSP.Size = new System.Drawing.Size(83, 13);
-            this.llAdddingZWSP.TabIndex = 21;
-            this.llAdddingZWSP.TabStop = true;
-            this.llAdddingZWSP.Text = "adding ZWSP...";
-            this.llAdddingZWSP.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llAdddingZWSP_LinkClicked);
             // 
             // llViewWords
             // 
@@ -279,6 +266,24 @@
             this.lblSentences.Size = new System.Drawing.Size(0, 24);
             this.lblSentences.TabIndex = 14;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblLongestSentence);
+            this.panel2.Location = new System.Drawing.Point(13, 67);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(425, 176);
+            this.panel2.TabIndex = 24;
+            // 
+            // lblLongestSentence
+            // 
+            this.lblLongestSentence.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblLongestSentence.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLongestSentence.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblLongestSentence.Location = new System.Drawing.Point(0, 0);
+            this.lblLongestSentence.Name = "lblLongestSentence";
+            this.lblLongestSentence.Size = new System.Drawing.Size(425, 176);
+            this.lblLongestSentence.TabIndex = 16;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -329,26 +334,22 @@
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(604, 71);
+            this.pnlTitle.Size = new System.Drawing.Size(545, 71);
             this.pnlTitle.TabIndex = 19;
             // 
-            // panel2
+            // btnAddZwsp
             // 
-            this.panel2.Controls.Add(this.lblLongestSentence);
-            this.panel2.Location = new System.Drawing.Point(13, 67);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(548, 158);
-            this.panel2.TabIndex = 24;
-            // 
-            // lblLongestSentence
-            // 
-            this.lblLongestSentence.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblLongestSentence.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLongestSentence.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblLongestSentence.Location = new System.Drawing.Point(0, 0);
-            this.lblLongestSentence.Name = "lblLongestSentence";
-            this.lblLongestSentence.Size = new System.Drawing.Size(548, 158);
-            this.lblLongestSentence.TabIndex = 16;
+            this.btnAddZwsp.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnAddZwsp.Enabled = false;
+            this.btnAddZwsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddZwsp.ForeColor = System.Drawing.Color.White;
+            this.btnAddZwsp.Location = new System.Drawing.Point(307, 613);
+            this.btnAddZwsp.Name = "btnAddZwsp";
+            this.btnAddZwsp.Size = new System.Drawing.Size(123, 47);
+            this.btnAddZwsp.TabIndex = 23;
+            this.btnAddZwsp.Text = "Add ZWSP";
+            this.btnAddZwsp.UseVisualStyleBackColor = false;
+            this.btnAddZwsp.Click += new System.EventHandler(this.btnAddZwsp_Click);
             // 
             // LanguageToolControl
             // 
@@ -357,7 +358,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlTitle);
             this.Name = "LanguageToolControl";
-            this.Size = new System.Drawing.Size(604, 767);
+            this.Size = new System.Drawing.Size(545, 767);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -366,9 +367,9 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -397,8 +398,8 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pnlTitle;
         private System.Windows.Forms.LinkLabel llViewWords;
-        private System.Windows.Forms.LinkLabel llAdddingZWSP;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblLongestSentence;
+        private System.Windows.Forms.Button btnAddZwsp;
     }
 }
